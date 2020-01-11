@@ -1,0 +1,626 @@
+@prefix : <http://tib.de/ontario/mapping#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+<#DB_source> a d2rq:Database;
+	d2rq:jdbcDSN "jdbc:mysql://localhost:3306/affymetrix";
+	d2rq:jdbcDriver "com.mysql.cj.jdbc.Driver";
+	d2rq:username "root";
+	d2rq:password "1234".
+
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_genechiparray
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_genechip_array"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:genechip-array>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/affymetrix_resource:{genechip_array}"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_alignments
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_alignments"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:alignments>;
+		rr:objectMap [
+			rml:reference "alignments" 
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_annotationnotes
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_annotation_notes"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:annotation-notes>;
+		rr:objectMap [
+			rml:reference "annotation_notes"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_function
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_function"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:function>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/go:{function}" 
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_location
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_location"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:location>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/go:{location}" 
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_chromosomallocation
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_chromosomal_location"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:chromosomal-location>;
+		rr:objectMap [
+			rml:reference "chromosomal_location"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_annotationdescription
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_annotation_description"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:annotation-description>;
+		rr:objectMap [
+			rml:reference "annotation_description"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_xagi
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_x_agi"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-agi>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/agi:{x_agi}"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_xunigene
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_x_unigene"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-unigene>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/unigene:{x_unigene}"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_genetitle
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_gene_title"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:gene-title>;
+		rr:objectMap [
+			rml:reference "gene_title"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_genomeversion
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_genome_version"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:genome-version>;
+		rr:objectMap [
+			rml:reference "genome_version"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_xuniprot
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_x_uniprot"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-uniprot>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/uniprot:{x_uniprot}"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_transcriptassignment
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_transcript_assignment"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:transcript-assignment>;
+		rr:objectMap [
+			rr:template "{transcript_assignment}"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_xsgd
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_x_sgd"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-sgd>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/sgd:{x_sgd}"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_qtl
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_qtl"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:qtl>;
+		rr:objectMap [
+			rml:reference "qtl" 
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_speciesscientificname
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_species_scientific_name"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:species-scientific-name>;
+		rr:objectMap [
+			rml:reference "species_scientific_name"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_representativepublicid
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_representative_public_id"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:representative-public-id>;
+		rr:objectMap [
+			rml:reference "representative_public_id"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_sequencetype
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_sequence_type"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:sequence-type>;
+		rr:objectMap [
+			rml:reference "sequence_type"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_xsymbol
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_x_symbol"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-symbol>;
+		rr:objectMap [
+			rr:template "{x_symbol}" 
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_process
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_process"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:process>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/go:{process}" 
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_pathway
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_pathway"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:pathway>;
+		rr:objectMap [
+			rml:reference "pathway" 
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_transcript
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_transcript"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:transcript>;
+		rr:objectMap [
+			rml:reference "transcript" 
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_unigeneclustertype
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_unigene_cluster_type"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:unigene-cluster-type>;
+		rr:objectMap [
+			rml:reference "unigene_cluster_type"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_xgeneid
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_x_geneid"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-geneid>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/geneid:{x_geneid}" 
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_label
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_label"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www.w3.org/2000/01/rdf-schema#label>;
+		rr:objectMap [
+			rml:reference "label" 
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_xflybase
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_x_flybase"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-flybase>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/flybase:{x_flybase}"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_main"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://rdfs.org/ns/void#inDataset>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/bio2rdf_dataset:{inDataset}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:probe-set-id>;
+		rr:objectMap [
+			rml:reference "probe_set_id"
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-rgd>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/rgd:{x_rgd}"
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-mgi>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/mgi:{x_mgi}"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_targetdescription
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_target_description"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:target-description>;
+		rr:objectMap [
+			rml:reference "target_description"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_xinterpro
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_x_interpro"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-interpro>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/interpro:{x_interpro}"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_xec
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_x_ec"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-ec>;
+		rr:objectMap [
+			rr:template "{x_ec}"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_xrefseq
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_x_refseq"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-refseq>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/refseq:{x_refseq}"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_xomim
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_x_omim"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-omim>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/omim:{x_omim}"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_sequencesource
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_sequence_source"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:sequence-source>;
+		rr:objectMap [
+			rml:reference "sequence_source"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_xwormbase
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_x_wormbase"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-wormbase>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/wormbase:{x_wormbase}"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_annotationdate
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_annotation_date"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:annotation-date>;
+		rr:objectMap [
+			rml:reference "annotation_date"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_transmembrane
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_trans_membrane"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:trans-membrane>;
+		rr:objectMap [
+			rml:reference "trans_membrane"
+		]
+	].
+:http__bio2rdf.org_affymetrix_vocabularyProbeset_Probeset_xensembl
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "affymetrix.Probeset_x_ensembl"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/affymetrix:{Probeset}";
+		rr:class <http://bio2rdf.org/affymetrix_vocabulary:Probeset>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/affymetrix_vocabulary:x-ensembl>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/ensembl:{x_ensembl}"
+		]
+	].

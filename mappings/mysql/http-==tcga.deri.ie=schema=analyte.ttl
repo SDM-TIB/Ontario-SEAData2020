@@ -1,0 +1,122 @@
+@prefix : <http://tib.de/ontario/mapping#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+<#DB_source> a d2rq:Database;
+	d2rq:jdbcDSN "jdbc:mysql://localhost:3306/tcga";
+	d2rq:jdbcDriver "com.mysql.cj.jdbc.Driver";
+	d2rq:username "root";
+	d2rq:password "1234".
+
+:http__tcga.deri.ie_schema_analyte_analyte
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "tcga.analyte_main"
+	];
+	rr:subjectMap [
+		rr:template "http://tcga.deri.ie/{analyte}";
+		rr:class <http://tcga.deri.ie/schema/analyte>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/amount>;
+		rr:objectMap [
+			rml:reference "amount" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_sample_barcode>;
+		rr:objectMap [
+			rr:template "http://tcga.deri.ie/{bcr_sample_barcode}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/concentration>;
+		rr:objectMap [
+			rml:reference "concentration" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/is_derived_from_ffpe>;
+		rr:objectMap [
+			rml:reference "is_derived_from_ffpe" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/a260_a280_ratio>;
+		rr:objectMap [
+			rml:reference "a260_a280_ratio" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/analyte_type>;
+		rr:objectMap [
+			rml:reference "analyte_type" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/analyte_type_id>;
+		rr:objectMap [
+			rml:reference "analyte_type_id" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_analyte_barcode>;
+		rr:objectMap [
+			rr:template "http://tcga.deri.ie/{bcr_analyte_barcode}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_analyte_uuid>;
+		rr:objectMap [
+			rml:reference "bcr_analyte_uuid" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/gel_image_file>;
+		rr:objectMap [
+			rml:reference "gel_image_file" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/normal_tumor_genotype_match>;
+		rr:objectMap [
+			rml:reference "normal_tumor_genotype_match" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/pcr_amplification_successful>;
+		rr:objectMap [
+			rml:reference "pcr_amplification_successful" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/ratio_28s_18s>;
+		rr:objectMap [
+			rml:reference "ratio_28s_18s" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/rinvalue>;
+		rr:objectMap [
+			rml:reference "rinvalue" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/spectrophotometer_method>;
+		rr:objectMap [
+			rml:reference "spectrophotometer_method" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/well_number>;
+		rr:objectMap [
+			rml:reference "well_number" 
+		]
+	].

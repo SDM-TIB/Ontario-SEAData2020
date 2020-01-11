@@ -1,0 +1,552 @@
+@prefix : <http://tib.de/ontario/mapping#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+<#DB_source> a d2rq:Database;
+	d2rq:jdbcDSN "jdbc:mysql://localhost:3306/tcga";
+	d2rq:jdbcDriver "com.mysql.cj.jdbc.Driver";
+	d2rq:username "root";
+	d2rq:password "1234".
+
+:http__tcga.deri.ie_schema_drug_drug
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "tcga.drug_main"
+	];
+	rr:subjectMap [
+		rr:template "http://tcga.deri.ie/{drug}";
+		rr:class <http://tcga.deri.ie/schema/drug>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_drug_barcode>;
+		rr:objectMap [
+			rr:template "http://tcga.deri.ie/{bcr_drug_barcode}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_drug_uuid>;
+		rr:objectMap [
+			rml:reference "bcr_drug_uuid" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/clinical_trial_drug_classification>;
+		rr:objectMap [
+			rml:reference "clinical_trial_drug_classification" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/clinical_trial_indicator>;
+		rr:objectMap [
+			rml:reference "clinical_trial_indicator" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/form_completion_date>;
+		rr:objectMap [
+			rml:reference "form_completion_date" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/pharma_adjuvant_cycles_count>;
+		rr:objectMap [
+			rml:reference "pharma_adjuvant_cycles_count" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/pharma_type_other>;
+		rr:objectMap [
+			rml:reference "pharma_type_other" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/pharmaceutical_therapy_drug_name>;
+		rr:objectMap [
+			rml:reference "pharmaceutical_therapy_drug_name" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/pharmaceutical_therapy_type>;
+		rr:objectMap [
+			rml:reference "pharmaceutical_therapy_type" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/pharmaceutical_tx_dose_units>;
+		rr:objectMap [
+			rml:reference "pharmaceutical_tx_dose_units" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/pharmaceutical_tx_ended_days_to>;
+		rr:objectMap [
+			rml:reference "pharmaceutical_tx_ended_days_to" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/pharmaceutical_tx_ongoing_indicator>;
+		rr:objectMap [
+			rml:reference "pharmaceutical_tx_ongoing_indicator" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/pharmaceutical_tx_started_days_to>;
+		rr:objectMap [
+			rml:reference "pharmaceutical_tx_started_days_to" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/pharmaceutical_tx_total_dose_units>;
+		rr:objectMap [
+			rml:reference "pharmaceutical_tx_total_dose_units" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/prescribed_dose>;
+		rr:objectMap [
+			rml:reference "prescribed_dose" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/regimen_number>;
+		rr:objectMap [
+			rml:reference "regimen_number" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/route_of_administration>;
+		rr:objectMap [
+			rml:reference "route_of_administration" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/therapy_regimen>;
+		rr:objectMap [
+			rml:reference "therapy_regimen" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/therapy_regimen_other>;
+		rr:objectMap [
+			rml:reference "therapy_regimen_other" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/total_dose>;
+		rr:objectMap [
+			rml:reference "total_dose" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/treatment_best_response>;
+		rr:objectMap [
+			rml:reference "treatment_best_response" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/additional_radiation_therapy>;
+		rr:objectMap [
+			rml:reference "additional_radiation_therapy" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_followup_barcode>;
+		rr:objectMap [
+			rr:template "http://tcga.deri.ie/{bcr_followup_barcode}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_followup_uuid>;
+		rr:objectMap [
+			rml:reference "bcr_followup_uuid" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/days_to_performance_status_follow_up_score>;
+		rr:objectMap [
+			rml:reference "days_to_performance_status_follow_up_score" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/death_days_to>;
+		rr:objectMap [
+			rml:reference "death_days_to" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/ecog_score>;
+		rr:objectMap [
+			rml:reference "ecog_score" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/followup_lost_to>;
+		rr:objectMap [
+			rml:reference "followup_lost_to" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/followup_reason>;
+		rr:objectMap [
+			rml:reference "followup_reason" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/karnofsky_score>;
+		rr:objectMap [
+			rml:reference "karnofsky_score" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/last_contact_days_to>;
+		rr:objectMap [
+			rml:reference "last_contact_days_to" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_neoplasm_event_type>;
+		rr:objectMap [
+			rml:reference "new_neoplasm_event_type" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_dx_days_to>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_dx_days_to" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_dx_indicator>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_dx_indicator" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_pharmaceutical_tx>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_pharmaceutical_tx" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_surgery_days_to_loco>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_surgery_days_to_loco" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_surgery_days_to_met>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_surgery_days_to_met" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_surgery_met>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_surgery_met" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/patient_death_reason>;
+		rr:objectMap [
+			rml:reference "patient_death_reason" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/performance_status_timing>;
+		rr:objectMap [
+			rml:reference "performance_status_timing" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/radiation_treatment_adjuvant>;
+		rr:objectMap [
+			rml:reference "radiation_treatment_adjuvant" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/targeted_molecular_therapy>;
+		rr:objectMap [
+			rml:reference "targeted_molecular_therapy" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/treatment_outcome_at_tcga_followup>;
+		rr:objectMap [
+			rml:reference "treatment_outcome_at_tcga_followup" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/treatment_outcome_first_course>;
+		rr:objectMap [
+			rml:reference "treatment_outcome_first_course" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/tumor_status>;
+		rr:objectMap [
+			rml:reference "tumor_status" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/vital_status>;
+		rr:objectMap [
+			rml:reference "vital_status" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_non_melanoma_event_histologic_type_text>;
+		rr:objectMap [
+			rml:reference "new_non_melanoma_event_histologic_type_text" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_melanoma_count>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_melanoma_count" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_melanoma_location>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_melanoma_location" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_melanoma_site>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_melanoma_site" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_met_site>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_met_site" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_met_site_other>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_met_site_other" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_radiation_tx>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_radiation_tx" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_site>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_site" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_surgery_days_to>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_surgery_days_to" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_type>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_type" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/pharmaceutical_tx_adjuvant>;
+		rr:objectMap [
+			rml:reference "pharmaceutical_tx_adjuvant" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/subsequent_known_primaries>;
+		rr:objectMap [
+			rml:reference "subsequent_known_primaries" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_radiation_barcode>;
+		rr:objectMap [
+			rr:template "http://tcga.deri.ie/{bcr_radiation_barcode}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_radiation_uuid>;
+		rr:objectMap [
+			rml:reference "bcr_radiation_uuid" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/course_number>;
+		rr:objectMap [
+			rml:reference "course_number" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/radiation_adjuvant_fractions_total>;
+		rr:objectMap [
+			rml:reference "radiation_adjuvant_fractions_total" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/radiation_adjuvant_units>;
+		rr:objectMap [
+			rml:reference "radiation_adjuvant_units" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/radiation_therapy_ended_days_to>;
+		rr:objectMap [
+			rml:reference "radiation_therapy_ended_days_to" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/radiation_therapy_ongoing_indicator>;
+		rr:objectMap [
+			rml:reference "radiation_therapy_ongoing_indicator" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/radiation_therapy_site>;
+		rr:objectMap [
+			rml:reference "radiation_therapy_site" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/radiation_therapy_started_days_to>;
+		rr:objectMap [
+			rml:reference "radiation_therapy_started_days_to" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/radiation_therapy_type>;
+		rr:objectMap [
+			rml:reference "radiation_therapy_type" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/radiation_total_dose>;
+		rr:objectMap [
+			rml:reference "radiation_total_dose" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/radiation_type_other>;
+		rr:objectMap [
+			rml:reference "radiation_type_other" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_patient_barcode>;
+		rr:objectMap [
+			rr:template "http://tcga.deri.ie/{bcr_patient_barcode}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/clinical_trail_drug_classification>;
+		rr:objectMap [
+			rml:reference "clinical_trail_drug_classification" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/days_to_drug_therapy_end>;
+		rr:objectMap [
+			rml:reference "days_to_drug_therapy_end" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/days_to_drug_therapy_start>;
+		rr:objectMap [
+			rml:reference "days_to_drug_therapy_start" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/drug_name>;
+		rr:objectMap [
+			rml:reference "drug_name" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/measure_of_response>;
+		rr:objectMap [
+			rml:reference "measure_of_response" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/number_cycles>;
+		rr:objectMap [
+			rml:reference "number_cycles" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/prescribed_dose_units>;
+		rr:objectMap [
+			rml:reference "prescribed_dose_units" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/regimen_indication>;
+		rr:objectMap [
+			rml:reference "regimen_indication" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/regimen_indication_notes>;
+		rr:objectMap [
+			rml:reference "regimen_indication_notes" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/therapy_ongoing>;
+		rr:objectMap [
+			rml:reference "therapy_ongoing" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/therapy_type>;
+		rr:objectMap [
+			rml:reference "therapy_type" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/therapy_type_notes>;
+		rr:objectMap [
+			rml:reference "therapy_type_notes" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/total_dose_units>;
+		rr:objectMap [
+			rml:reference "total_dose_units" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/tx_on_clinical_trial>;
+		rr:objectMap [
+			rml:reference "tx_on_clinical_trial" 
+		]
+	].
+:http__tcga.deri.ie_schema_drug_drug_new_tumor_event_surgery
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "tcga.drug_new_tumor_event_surgery"
+	];
+	rr:subjectMap [
+		rr:template "http://tcga.deri.ie/{drug}";
+		rr:class <http://tcga.deri.ie/schema/drug>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/new_tumor_event_surgery>;
+		rr:objectMap [
+			rml:reference "new_tumor_event_surgery" 
+		]
+	].

@@ -1,0 +1,10 @@
+[mysqld]
+secure-file-priv = ""
+internal_tmp_disk_storage_engine=MyISAM
+max_allowed_packet=256M
+innodb_file_per_table = ON
+innodb_buffer_pool_size = 8G
+innodb_buffer_pool_instances = 8
+innodb_log_file_size = 2G
+query_cache_size = 0
+query_cache_type = 0

@@ -1,0 +1,76 @@
+@prefix : <http://tib.de/ontario/mapping#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+<#DB_source> a d2rq:Database;
+	d2rq:jdbcDSN "jdbc:mysql://localhost:3306/sider";
+	d2rq:jdbcDriver "com.mysql.cj.jdbc.Driver";
+	d2rq:username "root";
+	d2rq:password "1234".
+
+:http__www4.wiwiss.fuberlin.de_sider_resource_sider_side_effects_side_effects_sideEffectName
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "sider.side_effects_sideEffectName"
+	];
+	rr:subjectMap [
+		rr:template "http://www4.wiwiss.fu-berlin.de/sider/resource/side_effects/{side_effects}";
+		rr:class <http://www4.wiwiss.fu-berlin.de/sider/resource/sider/side_effects>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/sider/resource/sider/sideEffectName>;
+		rr:objectMap [
+			rml:reference "sideEffectName" 
+		]
+	].
+:http__www4.wiwiss.fuberlin.de_sider_resource_sider_side_effects_side_effects_sameAs
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "sider.side_effects_sameAs"
+	];
+	rr:subjectMap [
+		rr:template "http://www4.wiwiss.fu-berlin.de/sider/resource/side_effects/{side_effects}";
+		rr:class <http://www4.wiwiss.fu-berlin.de/sider/resource/sider/side_effects>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www.w3.org/2002/07/owl#sameAs>;
+		rr:objectMap [
+			rr:template "{sameAs}" 
+		]
+	].
+:http__www4.wiwiss.fuberlin.de_sider_resource_sider_side_effects_side_effects
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "sider.side_effects_main"
+	];
+	rr:subjectMap [
+		rr:template "http://www4.wiwiss.fu-berlin.de/sider/resource/side_effects/{side_effects}";
+		rr:class <http://www4.wiwiss.fu-berlin.de/sider/resource/sider/side_effects>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www.w3.org/2000/01/rdf-schema#label>;
+		rr:objectMap [
+			rml:reference "label" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://xmlns.com/foaf/0.1/page>;
+		rr:objectMap [
+			rr:template "http://sideeffects.embl.de/se/{page}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/sider/resource/sider/sideEffectId>;
+		rr:objectMap [
+			rml:reference "sideEffectId" 
+		]
+	].

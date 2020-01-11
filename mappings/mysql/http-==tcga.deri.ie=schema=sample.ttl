@@ -1,0 +1,196 @@
+@prefix : <http://tib.de/ontario/mapping#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+<#DB_source> a d2rq:Database;
+	d2rq:jdbcDSN "jdbc:mysql://localhost:3306/tcga";
+	d2rq:jdbcDriver "com.mysql.cj.jdbc.Driver";
+	d2rq:username "root";
+	d2rq:password "1234".
+
+:http__tcga.deri.ie_schema_sample_sample
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "tcga.sample_main"
+	];
+	rr:subjectMap [
+		rr:template "http://tcga.deri.ie/{sample}";
+		rr:class <http://tcga.deri.ie/schema/sample>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_sample_barcode>;
+		rr:objectMap [
+			rr:template "http://tcga.deri.ie/{bcr_sample_barcode}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/days_to_sample_procurement>;
+		rr:objectMap [
+			rml:reference "days_to_sample_procurement" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/method_of_sample_procurement>;
+		rr:objectMap [
+			rml:reference "method_of_sample_procurement" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/other_method_of_sample_procurement>;
+		rr:objectMap [
+			rml:reference "other_method_of_sample_procurement" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_sample_uuid>;
+		rr:objectMap [
+			rml:reference "bcr_sample_uuid" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/vial_number>;
+		rr:objectMap [
+			rml:reference "vial_number" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/is_ffpe>;
+		rr:objectMap [
+			rml:reference "is_ffpe" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/protocol_file_name>;
+		rr:objectMap [
+			rml:reference "protocol_file_name" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/protocol_name>;
+		rr:objectMap [
+			rml:reference "protocol_name" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/NCNNCT_OthMethONSP>;
+		rr:objectMap [
+			rml:reference "NCNNCT_OthMethONSP" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/current_weight>;
+		rr:objectMap [
+			rml:reference "current_weight" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/days_to_collection>;
+		rr:objectMap [
+			rml:reference "days_to_collection" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/freezing_method>;
+		rr:objectMap [
+			rml:reference "freezing_method" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/initial_weight>;
+		rr:objectMap [
+			rml:reference "initial_weight" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/intermediate_dimension>;
+		rr:objectMap [
+			rml:reference "intermediate_dimension" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/longest_dimension>;
+		rr:objectMap [
+			rml:reference "longest_dimension" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/oct_embedded>;
+		rr:objectMap [
+			rml:reference "oct_embedded" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/pathology_report_uuid>;
+		rr:objectMap [
+			rml:reference "pathology_report_uuid" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/sample_type>;
+		rr:objectMap [
+			rml:reference "sample_type" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/sample_type_id>;
+		rr:objectMap [
+			rml:reference "sample_type_id" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/shortest_dimension>;
+		rr:objectMap [
+			rml:reference "shortest_dimension" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/time_between_clamping_and_freezing>;
+		rr:objectMap [
+			rml:reference "time_between_clamping_and_freezing" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/time_between_excision_and_freezing>;
+		rr:objectMap [
+			rml:reference "time_between_excision_and_freezing" 
+		]
+	].
+:http__tcga.deri.ie_schema_sample_sample_bcr_analyte_barcode
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "tcga.sample_bcr_analyte_barcode"
+	];
+	rr:subjectMap [
+		rr:template "http://tcga.deri.ie/{sample}";
+		rr:class <http://tcga.deri.ie/schema/sample>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_analyte_barcode>;
+		rr:objectMap [
+			rr:template "http://tcga.deri.ie/{bcr_analyte_barcode}" 
+		]
+	].
+:http__tcga.deri.ie_schema_sample_sample_experimental_protocol_type
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "tcga.sample_experimental_protocol_type"
+	];
+	rr:subjectMap [
+		rr:template "http://tcga.deri.ie/{sample}";
+		rr:class <http://tcga.deri.ie/schema/sample>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/experimental_protocol_type>;
+		rr:objectMap [
+			rml:reference "experimental_protocol_type" 
+		]
+	].

@@ -1,0 +1,141 @@
+{
+  "affymetrix": {
+    "Probeset_x_geneid": [
+      "x_geneid"
+    ]
+  },
+  "dailymed": {
+    "drugs_main": [
+      "drugs",
+      "label",
+      "name"
+    ],
+    "drugs_sameAs": [
+      "drugs",
+      "sameAs"
+    ],
+    "drugs_possibleDiseaseTarget": [
+      "drugs",
+      "possibleDiseaseTarget"
+    ],
+    "drugs_inactiveIngredient": [
+      "drugs",
+      "inactiveIngredient"
+    ]
+  },
+  "diseasome": {
+    "diseases_main": [
+      "diseases",
+      "name"
+    ],
+    "diseases_associatedGene": [
+      "associatedGene"
+    ]
+  },
+  "drugbank": {
+    "drugs_main": [
+      "drugs",
+      "keggCompoundId",
+      "pubchemCompoundId",
+      "limsDrugId",
+      "primaryAccessionNo",
+      "genericName",
+      "pubchemSubstanceId",
+      "pharmgkbId",
+      "keggDrugId",
+      "dpdDrugIdNumber",
+      "casRegistryNumber",
+      "chemicalFormula"
+    ],
+    "drugs_brandeddrug": [
+      "brandedDrug"
+    ],
+    "drugs_drugCategory": [
+      "drugs",
+      "drugCategory"
+    ],
+    "drugs_affectedOrganism": [
+      "drugs",
+      "affectedOrganism"
+    ],
+    "drugs_possibleDiseaseTarget": [
+      "drugs",
+      "possibleDiseaseTarget"
+    ],
+    "drugs_sameAs": [
+      "sameAs"
+    ],
+    "drugs_target": [
+      "target"
+    ]
+  },
+  "kegg": {
+    "Enzyme_xSubstrate": [
+      "Enzyme",
+      "xSubstrate"
+    ],
+    "Reaction_main": [
+      "Reaction",
+      "sameAs",
+      "label",
+      "identifier",
+      "url",
+      "urlImage"
+    ],
+    "Reaction_xEnzyme": [
+      "Reaction",
+      "xEnzyme"
+    ],
+    "Compound_main": [
+      "Compound",
+      "label",
+      "sameAs",
+      "identifier",
+      "url",
+      "urlImage"
+    ],
+    "Compound_xRef": [
+      "Compound",
+      "xRef"
+    ],
+    "Drug_main": [
+      "Drug",
+      "label",
+      "sameAs",
+      "identifier",
+      "url",
+      "urlImage"
+    ],
+    "Drug_xRef": [
+      "Drug",
+      "xRef"
+    ]
+  },
+  "linkedct": {
+    "intervention_main": [
+      "intervention",
+      "label",
+      "intervention_id"
+    ],
+    "intervention_seeAlso": [
+      "intervention",
+      "seeAlso"
+    ]
+  },
+  "sider": {
+    "drugs_sideEffect": [
+      "drugs",
+      "sideEffect"
+    ],
+    "side_effects_name": [
+      "side_effects",
+      "page",
+      "sideEffectId"
+    ]
+  },
+  "tcga": {
+    "expression_gene_lookup_main": [
+      "expression_gene_lookup"
+    ]
+  }
+}

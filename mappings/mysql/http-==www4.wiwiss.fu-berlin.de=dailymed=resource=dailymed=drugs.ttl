@@ -1,0 +1,216 @@
+@prefix : <http://tib.de/ontario/mapping#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+<#DB_source> a d2rq:Database;
+	d2rq:jdbcDSN "jdbc:mysql://localhost:3306/dailymed";
+	d2rq:jdbcDriver "com.mysql.cj.jdbc.Driver";
+	d2rq:username "root";
+	d2rq:password "1234".
+
+:http__www4.wiwiss.fuberlin.de_dailymed_resource_dailymed_drugs_drugs_possibleDiseaseTarget
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "dailymed.drugs_possibleDiseaseTarget"
+	];
+	rr:subjectMap [
+		rr:template "http://www4.wiwiss.fu-berlin.de/dailymed/resource/drugs/{drugs}";
+		rr:class <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/drugs>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/possibleDiseaseTarget>;
+		rr:objectMap [
+			rr:template "http://www4.wiwiss.fu-berlin.de/diseasome/resource/diseases/{possibleDiseaseTarget}" 
+		]
+	].
+:http__www4.wiwiss.fuberlin.de_dailymed_resource_dailymed_drugs_drugs_sameAs
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "dailymed.drugs_sameAs"
+	];
+	rr:subjectMap [
+		rr:template "http://www4.wiwiss.fu-berlin.de/dailymed/resource/drugs/{drugs}";
+		rr:class <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/drugs>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www.w3.org/2002/07/owl#sameAs>;
+		rr:objectMap [
+			rr:template "{sameAs}" 
+		]
+	].
+:http__www4.wiwiss.fuberlin.de_dailymed_resource_dailymed_drugs_drugs_inactiveIngredient
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "dailymed.drugs_inactiveIngredient"
+	];
+	rr:subjectMap [
+		rr:template "http://www4.wiwiss.fu-berlin.de/dailymed/resource/drugs/{drugs}";
+		rr:class <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/drugs>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/inactiveIngredient>;
+		rr:objectMap [
+			rr:template "http://www4.wiwiss.fu-berlin.de/dailymed/resource/ingredient/{inactiveIngredient}" 
+		]
+	].
+:http__www4.wiwiss.fuberlin.de_dailymed_resource_dailymed_drugs_drugs_sideEffect
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "dailymed.drugs_sideEffect"
+	];
+	rr:subjectMap [
+		rr:template "http://www4.wiwiss.fu-berlin.de/dailymed/resource/drugs/{drugs}";
+		rr:class <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/drugs>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/sideEffect>;
+		rr:objectMap [
+			rml:reference "sideEffect" 
+		]
+	].
+:http__www4.wiwiss.fuberlin.de_dailymed_resource_dailymed_drugs_drugs
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "dailymed.drugs_main"
+	];
+	rr:subjectMap [
+		rr:template "http://www4.wiwiss.fu-berlin.de/dailymed/resource/drugs/{drugs}";
+		rr:class <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/drugs>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www.w3.org/2000/01/rdf-schema#label>;
+		rr:objectMap [
+			rml:reference "label" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/activeIngredient>;
+		rr:objectMap [
+			rr:template "http://www4.wiwiss.fu-berlin.de/dailymed/resource/ingredient/{activeIngredient}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/activeMoiety>;
+		rr:objectMap [
+			rr:template "http://www4.wiwiss.fu-berlin.de/dailymed/resource/ingredient/{activeMoiety}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/adverseReaction>;
+		rr:objectMap [
+			rml:reference "adverseReaction" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/boxedWarning>;
+		rr:objectMap [
+			rml:reference "boxedWarning" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/clinicalPharmacology>;
+		rr:objectMap [
+			rml:reference "clinicalPharmacology" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/contraindication>;
+		rr:objectMap [
+			rml:reference "contraindication" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/description>;
+		rr:objectMap [
+			rml:reference "description" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/dosage>;
+		rr:objectMap [
+			rml:reference "dosage" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/fullName>;
+		rr:objectMap [
+			rml:reference "fullName" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/genericDrug>;
+		rr:objectMap [
+			rr:template "http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugs/{genericDrug}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/genericMedicine>;
+		rr:objectMap [
+			rml:reference "genericMedicine" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/indication>;
+		rr:objectMap [
+			rml:reference "indication" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/name>;
+		rr:objectMap [
+			rml:reference "name" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/overdosage>;
+		rr:objectMap [
+			rml:reference "overdosage" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/precaution>;
+		rr:objectMap [
+			rml:reference "precaution" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/representedOrganization>;
+		rr:objectMap [
+			rr:template "http://www4.wiwiss.fu-berlin.de/dailymed/resource/organization/{representedOrganization}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/routeOfAdministration>;
+		rr:objectMap [
+			rr:template "http://www4.wiwiss.fu-berlin.de/dailymed/resource/routeOfAdministration/{routeOfAdministration}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/supply>;
+		rr:objectMap [
+			rml:reference "supply" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/warning>;
+		rr:objectMap [
+			rml:reference "warning" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/supplementalPatientMaterial>;
+		rr:objectMap [
+			rml:reference "supplementalPatientMaterial" 
+		]
+	].

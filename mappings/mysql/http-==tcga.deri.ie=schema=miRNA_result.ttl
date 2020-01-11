@@ -1,0 +1,50 @@
+@prefix : <http://tib.de/ontario/mapping#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+<#DB_source> a d2rq:Database;
+	d2rq:jdbcDSN "jdbc:mysql://localhost:3306/tcga";
+	d2rq:jdbcDriver "com.mysql.cj.jdbc.Driver";
+	d2rq:username "root";
+	d2rq:password "1234".
+
+:http__tcga.deri.ie_schema_miRNA_result_miRNA_result
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "tcga.miRNA_result_main"
+	];
+	rr:subjectMap [
+		rr:template "http://tcga.deri.ie/{miRNA_result}";
+		rr:class <http://tcga.deri.ie/schema/miRNA_result>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/chromosome>;
+		rr:objectMap [
+			rml:reference "chromosome" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/start>;
+		rr:objectMap [
+			rml:reference "start" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/stop>;
+		rr:objectMap [
+			rml:reference "stop" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/reads_per_million_miRNA_mapped>;
+		rr:objectMap [
+			rml:reference "reads_per_million_miRNA_mapped" 
+		]
+	].

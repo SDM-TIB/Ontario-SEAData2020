@@ -1,0 +1,86 @@
+@prefix : <http://tib.de/ontario/mapping#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+<#DB_source> a d2rq:Database;
+	d2rq:jdbcDSN "jdbc:mysql://localhost:3306/tcga";
+	d2rq:jdbcDriver "com.mysql.cj.jdbc.Driver";
+	d2rq:username "root";
+	d2rq:password "1234".
+
+:http__tcga.deri.ie_schema_shipment_shipment
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "tcga.shipment_main"
+	];
+	rr:subjectMap [
+		rr:template "http://tcga.deri.ie/{shipment}";
+		rr:class <http://tcga.deri.ie/schema/shipment>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_sample_barcode>;
+		rr:objectMap [
+			rr:template "http://tcga.deri.ie/{bcr_sample_barcode}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/center_id>;
+		rr:objectMap [
+			rml:reference "center_id" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/plate_id>;
+		rr:objectMap [
+			rml:reference "plate_id" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/is_ffpe>;
+		rr:objectMap [
+			rml:reference "is_ffpe" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/portion_number>;
+		rr:objectMap [
+			rml:reference "portion_number" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/bcr_shipment_portion_uuid>;
+		rr:objectMap [
+			rml:reference "bcr_shipment_portion_uuid" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/shipment_portion_bcr_aliquot_barcode>;
+		rr:objectMap [
+			rr:template "http://tcga.deri.ie/{shipment_portion_bcr_aliquot_barcode}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/shipment_portion_day_of_shipment>;
+		rr:objectMap [
+			rml:reference "shipment_portion_day_of_shipment" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/shipment_portion_month_of_shipment>;
+		rr:objectMap [
+			rml:reference "shipment_portion_month_of_shipment" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://tcga.deri.ie/schema/shipment_portion_year_of_shipment>;
+		rr:objectMap [
+			rml:reference "shipment_portion_year_of_shipment" 
+		]
+	].

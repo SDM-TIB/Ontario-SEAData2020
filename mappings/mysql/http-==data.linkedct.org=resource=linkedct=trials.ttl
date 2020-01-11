@@ -1,0 +1,480 @@
+@prefix : <http://tib.de/ontario/mapping#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+<#DB_source> a d2rq:Database;
+	d2rq:jdbcDSN "jdbc:mysql://localhost:3306/linkedct";
+	d2rq:jdbcDriver "com.mysql.cj.jdbc.Driver";
+	d2rq:username "root";
+	d2rq:password "1234".
+
+:http__data.linkedct.org_resource_linkedct_trials_trials_nct_alias
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.trials_nct_alias"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/trials/{trials}";
+		rr:class <http://data.linkedct.org/resource/linkedct/trials>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/nct_alias>;
+		rr:objectMap [
+			rml:reference "nct_alias" 
+		]
+	].
+:http__data.linkedct.org_resource_linkedct_trials_trials_secondary_id
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.trials_secondary_id"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/trials/{trials}";
+		rr:class <http://data.linkedct.org/resource/linkedct/trials>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/secondary_id>;
+		rr:objectMap [
+			rml:reference "secondary_id" 
+		]
+	].
+:http__data.linkedct.org_resource_linkedct_trials_trials
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.trials_main"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/trials/{trials}";
+		rr:class <http://data.linkedct.org/resource/linkedct/trials>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www.w3.org/2000/01/rdf-schema#label>;
+		rr:objectMap [
+			rml:reference "label" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://xmlns.com/foaf/0.1/page>;
+		rr:objectMap [
+			rr:template "http://clinicaltrials.gov/show/{page}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/lead_sponsor_agency>;
+		rr:objectMap [
+			rr:template "http://data.linkedct.org/resource/agency/{lead_sponsor_agency}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/eligibility_minimum_age>;
+		rr:objectMap [
+			rml:reference "eligibility_minimum_age" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/brief_title>;
+		rr:objectMap [
+			rml:reference "brief_title" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/nct_id>;
+		rr:objectMap [
+			rml:reference "nct_id" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/number_of_arms>;
+		rr:objectMap [
+			rml:reference "number_of_arms" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/number_of_groups>;
+		rr:objectMap [
+			rml:reference "number_of_groups" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/id>;
+		rr:objectMap [
+			rml:reference "id" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/download_date>;
+		rr:objectMap [
+			rml:reference "download_date" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/enrollment>;
+		rr:objectMap [
+			rml:reference "enrollment" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/firstreceived_date>;
+		rr:objectMap [
+			rml:reference "firstreceived_date" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/eligibility_healthy_volunteers>;
+		rr:objectMap [
+			rml:reference "eligibility_healthy_volunteers" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/overall_status>;
+		rr:objectMap [
+			rml:reference "overall_status" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/summary>;
+		rr:objectMap [
+			rml:reference "summary" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/end_date>;
+		rr:objectMap [
+			rml:reference "end_date" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/official_title>;
+		rr:objectMap [
+			rml:reference "official_title" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/source>;
+		rr:objectMap [
+			rml:reference "source" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/verification_date>;
+		rr:objectMap [
+			rml:reference "verification_date" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/eligibility_gender>;
+		rr:objectMap [
+			rml:reference "eligibility_gender" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/org_study_id>;
+		rr:objectMap [
+			rml:reference "org_study_id" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/criteria>;
+		rr:objectMap [
+			rml:reference "criteria" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/study_design>;
+		rr:objectMap [
+			rml:reference "study_design" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/start_date>;
+		rr:objectMap [
+			rml:reference "start_date" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/study_type>;
+		rr:objectMap [
+			rml:reference "study_type" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/phase>;
+		rr:objectMap [
+			rml:reference "phase" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/description>;
+		rr:objectMap [
+			rml:reference "description" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/lastchanged_date>;
+		rr:objectMap [
+			rml:reference "lastchanged_date" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/eligibility_maximum_age>;
+		rr:objectMap [
+			rml:reference "eligibility_maximum_age" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/primary_completion_date>;
+		rr:objectMap [
+			rml:reference "primary_completion_date" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/overall_contact_last_name>;
+		rr:objectMap [
+			rml:reference "overall_contact_last_name" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/overall_contact_phone>;
+		rr:objectMap [
+			rml:reference "overall_contact_phone" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/has_dmc>;
+		rr:objectMap [
+			rml:reference "has_dmc" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/overall_contact_email>;
+		rr:objectMap [
+			rml:reference "overall_contact_email" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/acronym>;
+		rr:objectMap [
+			rml:reference "acronym" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/why_stopped>;
+		rr:objectMap [
+			rml:reference "why_stopped" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/eligibility_study_pop>;
+		rr:objectMap [
+			rml:reference "eligibility_study_pop" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/biospec>;
+		rr:objectMap [
+			rml:reference "biospec" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/biospec_retention>;
+		rr:objectMap [
+			rml:reference "biospec_retention" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/eligibility_sampling_method>;
+		rr:objectMap [
+			rml:reference "eligibility_sampling_method" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/overall_contact_phone_ext>;
+		rr:objectMap [
+			rml:reference "overall_contact_phone_ext" 
+		]
+	].
+:http__data.linkedct.org_resource_linkedct_trials_trials_results_reference
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.trials_results_reference"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/trials/{trials}";
+		rr:class <http://data.linkedct.org/resource/linkedct/trials>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/results_reference>;
+		rr:objectMap [
+			rr:template "http://data.linkedct.org/resource/results_reference/{results_reference}" 
+		]
+	].
+:http__data.linkedct.org_resource_linkedct_trials_trials_overall_official
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.trials_overall_official"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/trials/{trials}";
+		rr:class <http://data.linkedct.org/resource/linkedct/trials>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/overall_official>;
+		rr:objectMap [
+			rr:template "http://data.linkedct.org/resource/overall_official/{overall_official}" 
+		]
+	].
+:http__data.linkedct.org_resource_linkedct_trials_trials_arm_group
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.trials_arm_group"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/trials/{trials}";
+		rr:class <http://data.linkedct.org/resource/linkedct/trials>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/arm_group>;
+		rr:objectMap [
+			rr:template "http://data.linkedct.org/resource/arm_group/{arm_group}" 
+		]
+	].
+:http__data.linkedct.org_resource_linkedct_trials_trials_collaborator_agency
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.trials_collaborator_agency"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/trials/{trials}";
+		rr:class <http://data.linkedct.org/resource/linkedct/trials>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/collaborator_agency>;
+		rr:objectMap [
+			rr:template "http://data.linkedct.org/resource/collabagency/{collaborator_agency}" 
+		]
+	].
+:http__data.linkedct.org_resource_linkedct_trials_trials_secondary_outcomes
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.trials_secondary_outcomes"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/trials/{trials}";
+		rr:class <http://data.linkedct.org/resource/linkedct/trials>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/secondary_outcomes>;
+		rr:objectMap [
+			rr:template "http://data.linkedct.org/resource/secondary_outcomes/{secondary_outcomes}" 
+		]
+	].
+:http__data.linkedct.org_resource_linkedct_trials_trials_primary_outcomes
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.trials_primary_outcomes"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/trials/{trials}";
+		rr:class <http://data.linkedct.org/resource/linkedct/trials>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/primary_outcomes>;
+		rr:objectMap [
+			rr:template "http://data.linkedct.org/resource/primary_outcomes/{primary_outcomes}" 
+		]
+	].
+:http__data.linkedct.org_resource_linkedct_trials_trials_intervention
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.trials_intervention"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/trials/{trials}";
+		rr:class <http://data.linkedct.org/resource/linkedct/trials>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/intervention>;
+		rr:objectMap [
+			rr:template "http://data.linkedct.org/resource/intervention/{intervention}" 
+		]
+	].
+:http__data.linkedct.org_resource_linkedct_trials_trials_location
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.trials_location"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/trials/{trials}";
+		rr:class <http://data.linkedct.org/resource/linkedct/trials>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/location>;
+		rr:objectMap [
+			rr:template "http://data.linkedct.org/resource/location/{location}" 
+		]
+	].
+:http__data.linkedct.org_resource_linkedct_trials_trials_reference
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.trials_reference"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/trials/{trials}";
+		rr:class <http://data.linkedct.org/resource/linkedct/trials>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/reference>;
+		rr:objectMap [
+			rr:template "http://data.linkedct.org/resource/reference/{reference}" 
+		]
+	].
+:http__data.linkedct.org_resource_linkedct_trials_trials_condition
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.trials_condition"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/trials/{trials}";
+		rr:class <http://data.linkedct.org/resource/linkedct/trials>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/condition>;
+		rr:objectMap [
+			rr:template "http://data.linkedct.org/resource/condition/{condition}" 
+		]
+	].
+:http__data.linkedct.org_resource_linkedct_trials_trials_oversight
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.trials_oversight"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/trials/{trials}";
+		rr:class <http://data.linkedct.org/resource/linkedct/trials>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/oversight>;
+		rr:objectMap [
+			rr:template "http://data.linkedct.org/resource/oversight/{oversight}" 
+		]
+	].

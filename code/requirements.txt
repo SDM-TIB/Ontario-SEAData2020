@@ -1,0 +1,10 @@
+hdfs
+pyspark
+pymongo
+mysql-connector-python==8.0.11
+neo4j-driver
+rdflib
+networkx
+ply
+pydrill
+numpy

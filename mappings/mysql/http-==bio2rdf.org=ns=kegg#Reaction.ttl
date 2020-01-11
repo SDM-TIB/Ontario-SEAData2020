@@ -1,0 +1,138 @@
+@prefix : <http://tib.de/ontario/mapping#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+<#DB_source> a d2rq:Database;
+	d2rq:jdbcDSN "jdbc:mysql://localhost:3306/kegg";
+	d2rq:jdbcDriver "com.mysql.cj.jdbc.Driver";
+	d2rq:username "root";
+	d2rq:password "1234".
+
+:http__bio2rdf.org_ns_kegg_Reaction_Reaction
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "kegg.Reaction_main"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/rn:{Reaction}";
+		rr:class <http://bio2rdf.org/ns/kegg#Reaction>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www.w3.org/2000/01/rdf-schema#label>;
+		rr:objectMap [
+			rml:reference "label" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www.w3.org/2000/01/rdf-schema#comment>;
+		rr:objectMap [
+			rml:reference "comment" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www.w3.org/2002/07/owl#sameAs>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/rn:{sameAs}" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://purl.org/dc/elements/1.1/identifier>;
+		rr:objectMap [
+			rml:reference "identifier" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://purl.org/dc/elements/1.1/title>;
+		rr:objectMap [
+			rml:reference "title" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/ns/bio2rdf#url>;
+		rr:objectMap [
+			rml:reference "url" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/ns/bio2rdf#urlImage>;
+		rr:objectMap [
+			rml:reference "urlImage" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/ns/kegg#equation>;
+		rr:objectMap [
+			rml:reference "equation" 
+		]
+	].
+:http__bio2rdf.org_ns_kegg_Reaction_Reaction_xSubstrate
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "kegg.Reaction_xSubstrate"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/rn:{Reaction}";
+		rr:class <http://bio2rdf.org/ns/kegg#Reaction>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/ns/kegg#xSubstrate>;
+		rr:objectMap [
+			rr:template "{xSubstrate}" 
+		]
+	].
+:http__bio2rdf.org_ns_kegg_Reaction_Reaction_xEnzyme
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "kegg.Reaction_xEnzyme"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/rn:{Reaction}";
+		rr:class <http://bio2rdf.org/ns/kegg#Reaction>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/ns/kegg#xEnzyme>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/ec:{xEnzyme}" 
+		]
+	].
+:http__bio2rdf.org_ns_kegg_Reaction_Reaction_xPathway
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "kegg.Reaction_xPathway"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/rn:{Reaction}";
+		rr:class <http://bio2rdf.org/ns/kegg#Reaction>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/ns/kegg#xPathway>;
+		rr:objectMap [
+			rr:template "http://bio2rdf.org/path:{xPathway}" 
+		]
+	].
+:http__bio2rdf.org_ns_kegg_Reaction_Reaction_xProduct
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "kegg.Reaction_xProduct"
+	];
+	rr:subjectMap [
+		rr:template "http://bio2rdf.org/rn:{Reaction}";
+		rr:class <http://bio2rdf.org/ns/kegg#Reaction>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://bio2rdf.org/ns/kegg#xProduct>;
+		rr:objectMap [
+			rr:template "{xProduct}" 
+		]
+	].

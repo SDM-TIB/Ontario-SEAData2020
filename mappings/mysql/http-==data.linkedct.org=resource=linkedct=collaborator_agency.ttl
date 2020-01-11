@@ -1,0 +1,44 @@
+@prefix : <http://tib.de/ontario/mapping#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+<#DB_source> a d2rq:Database;
+	d2rq:jdbcDSN "jdbc:mysql://localhost:3306/linkedct";
+	d2rq:jdbcDriver "com.mysql.cj.jdbc.Driver";
+	d2rq:username "root";
+	d2rq:password "1234".
+
+:http__data.linkedct.org_resource_linkedct_collaborator_agency_collaborator_agency
+	rml:logicalSource [
+		rml:source <#DB_source>;
+		rr:sqlVersion rr:SQL2008;
+		rr:tableName "linkedct.collaborator_agency_main"
+	];
+	rr:subjectMap [
+		rr:template "http://data.linkedct.org/resource/collabagency/{collaborator_agency}";
+		rr:class <http://data.linkedct.org/resource/linkedct/collaborator_agency>
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://www.w3.org/2000/01/rdf-schema#label>;
+		rr:objectMap [
+			rml:reference "label" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/collaborator_agency_name>;
+		rr:objectMap [
+			rml:reference "collaborator_agency_name" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate <http://data.linkedct.org/resource/linkedct/collaborator_agency_id>;
+		rr:objectMap [
+			rml:reference "collaborator_agency_id" 
+		]
+	].
