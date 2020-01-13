@@ -10,12 +10,12 @@ In order to run the experiment the following software is needed.
 * Docker (incl. docker-compose)
 
 ## Preparation
-Before running the experiment, the data sources must be initialized.
+Before running the experiment, the data sources must be initialized and the Docker image of the engine needs to be build.
 To do so, perform the following setps.
 
 1. extract the data files from the archive (recommanded to use 7-zip ``cd datasources/tsv; 7z x tsv.zip.001; cd ../..``)
 2. start the Docker containers: ``docker-compose -f datasources/mysql/docker-compose.yml up -d``
-3. wait for the containers to finish loading the data
+3. while waiting for the containers to finish loading the data build the Docker image ``docker build ./code -t prohde/ontario:sea2020``
 
 ## Running the Experiment
 Once the data is loaded, the experiment can be performed by executing ``./experiment.sh``.
